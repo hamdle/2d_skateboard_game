@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/mp_cs_buildings.png-3ba85f714e336d24b06d88622d517140.stex"
+path="res://.import/skateboard_x1.png-031fc548ba6b0ffe3c1e22cc89056139.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mp_cs_buildings.png"
-dest_files=[ "res://.import/mp_cs_buildings.png-3ba85f714e336d24b06d88622d517140.stex" ]
+source_file="res://characters/player/skateboard_x1.png"
+dest_files=[ "res://.import/skateboard_x1.png-031fc548ba6b0ffe3c1e22cc89056139.stex" ]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=false
-flags/mipmaps=false
+flags/mipmaps=true
 flags/anisotropic=false
 flags/srgb=2
 process/fix_alpha_border=true

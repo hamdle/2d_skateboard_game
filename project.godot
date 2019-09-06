@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="2d_skateboard_game"
-run/main_scene="res://Level0.tscn"
+run/main_scene="res://levels/normandock/normandock.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -25,4 +25,5 @@ window/size/width=800
 
 [rendering]
 
+environment/default_clear_color=Color( 0.196078, 0.670588, 0.854902, 1 )
 environment/default_environment="res://default_env.tres"
