@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://models/city/city_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://characters/player/Player.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 20.3523, 3.09717 )
+extents = Vector2( 47.4747, 3.09717 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.5344, 2.5199 )
 
 [node name="Game" type="Node2D"]
 
@@ -29,6 +32,6 @@ one_way_collision = true
 position = Vector2( 539.055, 507.258 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 26.4897, 1.74789 )
-shape = SubResource( 1 )
+position = Vector2( 26.5754, 1.05978 )
+shape = SubResource( 2 )
 one_way_collision = true
