@@ -29,12 +29,12 @@ func get_input():
 	if Input.is_action_pressed("ui_left"):
 		if $Sprite.scale.x > 0:
 			direction = DIRECTION_LEFT
-			#velocity.x = -BURST_SPEED
+			velocity.x = -BURST_SPEED
 			$Sprite.scale.x = -1
 	elif Input.is_action_pressed("ui_right"):
 		if $Sprite.scale.x < 0:
 			direction = DIRECTION_RIGHT
-			#velocity.x = BURST_SPEED
+			velocity.x = BURST_SPEED
 			$Sprite.scale.x = 1
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.01)
