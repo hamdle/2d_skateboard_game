@@ -5,8 +5,7 @@ const DIRECTION_RIGHT = 1
 
 const UP = Vector2(0, -1)
 const GRAVITY = 9
-const PUSH_SPEED = 70
-const BURST_SPEED = 50
+const PUSH_SPEED = 50
 const JUMP_HEIGHT = -200
 
 # Player
@@ -20,43 +19,31 @@ func get_input():
 	velocity.y += GRAVITY
 	
 	# Camera controls
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("camera_in"):
 		zoom_factor -= 0.01
-	if Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("camera_out"):
 		zoom_factor += 0.01
 	
 	# Player movement
-	if Input.is_action_pressed("ui_left"):
-		if $Sprite.scale.x > 0:
+	if Input.is_action_pressed("steer_left"):
+		if $AnimatedSprite.scale.x > 0:
 			direction = DIRECTION_LEFT
-			velocity.x = -BURST_SPEED
-			$Sprite.scale.x = -1
-	elif Input.is_action_pressed("ui_right"):
-		if $Sprite.scale.x < 0:
+			$AnimatedSprite.scale.x = -1
+	elif Input.is_action_pressed("steer_right"):
+		if $AnimatedSprite.scale.x < 0:
 			direction = DIRECTION_RIGHT
-			velocity.x = BURST_SPEED
-			$Sprite.scale.x = 1
+			$AnimatedSprite.scale.x = 1
 	else:
 		velocity.x = lerp(velocity.x, 0, 0.01)
 	
 	# Push
-	if Input.is_action_just_pressed("push"):
+	if Input.is_action_just_pressed("push_right"):
 		velocity.x += PUSH_SPEED * direction
-	
-	#if Input.is_action_pressed("push"):
-	#	velocity.x += PUSH_SPEED * direction
 		
 	# Jump
-	if Input.is_action_just_pressed("ui_select"):
+	if Input.is_action_just_released("trick_down"):
 		if is_on_floor():
 			velocity.y = JUMP_HEIGHT
-	
-	# Correct facing position based on speed
-	if (velocity.x > 100.0):
-		direction = DIRECTION_RIGHT
-		$Sprite.scale.x = 1
-	
-	#print(velocity.x)
 
 func _physics_process(delta):
 	get_input()
@@ -154,11 +141,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	# Update zoom
-	#var camera = get_node("Camera2D")
 	var zoom = $Camera2D.get_zoom()
-	#print(zoom)
 	zoom.x = lerp(zoom.x, zoom.x * zoom_factor, zoom_speed * delta)
-	zoom.y = lerp(zoom.y, zoom.y * zoom_factor, zoom_speed * delta)
+	zoom.y = lerp(zoom.y, zoom.x * zoom_factor, zoom_speed * delta)
+	zoom_factor = lerp(zoom_factor, 1.0, 0.1)
+	
 	$Camera2D.set_zoom(zoom)

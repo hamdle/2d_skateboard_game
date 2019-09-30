@@ -22,12 +22,6 @@ shape = SubResource( 1 )
 current = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-visible = false
-frames = ExtResource( 3 )
-animation = "idle"
-playing = true
-
-[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 frames = ExtResource( 3 )
 animation = "idle"
 playing = true
