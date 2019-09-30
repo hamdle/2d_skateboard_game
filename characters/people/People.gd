@@ -44,6 +44,10 @@ func get_input():
 	if Input.is_action_just_released("trick_down"):
 		if is_on_floor():
 			velocity.y = JUMP_HEIGHT
+			
+	# Brake
+	if Input.is_action_pressed("brake"):
+		velocity.x = lerp(velocity.x, 0, 0.05)
 
 func _physics_process(delta):
 	get_input()
